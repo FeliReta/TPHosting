@@ -51,66 +51,98 @@ nav ul li a:hover {
     background: #146b8d;
 }
 
-h1, h2, p {
-    text-align: center;
-    margin: 50px 0;
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    nav {
+        padding: 0 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        display: none; /* Hide links initially */
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background: #000a66;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+
+    nav ul li {
+        display: block;
+    }
+
+    nav ul li a {
+        padding: 15px;
+    }
+
+    .dropdown-btn {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+        background-color: #146b8d;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+    .dropdown-btn:hover {
+        background-color: #4CAF50;
+    }
+
+    .dropdown-content {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .dropdown-content a {
+        padding: 15px;
+        text-decoration: none;
+        color: white;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #146b8d;
+    }
+
+    .dropdown-btn.active + .dropdown-content {
+        display: flex;
+    }
+
+    h1, h2, p {
+        margin: 20px 0;
+    }
+
+    input[type="email"], input[type="password"], button {
+        width: 90%; /* Wider form elements on mobile */
+    }
+
+    .flash-messages {
+        padding: 10px 30px;
+        font-size: 16px;
+    }
+
+    .footer-bar {
+        flex-direction: column;
+    }
+
+    .carousel {
+        max-width: 100%;
+    }
+
+    .carousel-images {
+        flex-direction: column;
+    }
 }
 
-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #ccc; /* Light color for labels */
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers all form elements horizontally */
-}
-
-input[type="email"], input[type="password"] {
-    width: 50%; /* Makes the inputs half their original width */
-    padding: 5px; /* Reduces padding for smaller height */
-    border: 1px solid #555;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    background-color: #2E3B3D;
-    color: #fff;
-    font-size: 14px; /* Adjust font size for smaller inputs */
-}
-
-button {
-    width: 50%; /* Makes the button half its original width */
-    padding: 5px; /* Reduces padding for smaller height */
-    background: #833AE0;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 14px; /* Matches input font size */
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: #4CAF50;
-}
-
-img {
-    max-width: 100%; /* Ensures the image never exceeds its container's width */
-    height: auto;    /* Maintains aspect ratio */
-    display: block;  /* Prevents inline gaps */
-    margin: 0 auto;  /* Centers the image horizontally */
-}
-
-.flash-messages {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 5px;
-    text-align: center;
-}
+/* Other existing styles... */
 
 /* Footer styling */
 footer {
@@ -159,36 +191,6 @@ footer {
     flex-shrink: 0; /* Prevents the image from shrinking inside the box */
 }
 
-.flash-messages {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 50px; /* Wider padding for a larger box */
-    border-radius: 8px;
-    text-align: center;
-    font-size: 18px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.5s ease; /* Smooth appearance and disappearance */
-    z-index: 1000; /* Ensures it's on top */
-}
-
-.support_button {
-    width: 50%; /* Makes the button half its original width */
-    padding: 5px; /* Reduces padding for smaller height */
-    background: #833AE0;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 14px; /* Matches input font size */
-    cursor: pointer;
-    transition: background 0.3s;
-    margin-top: 20px;
-}
-
 /* Carrusel de fotos */
 .carousel {
     position: relative;
@@ -228,45 +230,4 @@ footer {
 
 .carousel-indicators .active {
     background-color: #000;
-}
-
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-        padding: 10px;
-    }
-
-    nav {
-        padding: 0 10px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    h1, h2, p {
-        margin: 20px 0;
-    }
-
-    input[type="email"], input[type="password"], button {
-        width: 90%; /* Wider form elements on mobile */
-    }
-
-    .flash-messages {
-        padding: 10px 30px;
-        font-size: 16px;
-    }
-
-    .footer-bar {
-        flex-direction: column;
-    }
-
-    .carousel {
-        max-width: 100%;
-    }
-
-    .carousel-images {
-        flex-direction: column;
-    }
 }
