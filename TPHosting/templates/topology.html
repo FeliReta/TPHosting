@@ -19,7 +19,7 @@
     <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP Hosting - Imagenes de Servicio</title>
+    <title>TP Hosting - Topología y planos</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
         /* Additional CSS for updated layout needs */
@@ -77,8 +77,7 @@
             </nav>
         </header>
 
-        <h1>¡Bienvenido a TP Hosting!</h1>
-        <p>Hosting potente y confiable para todo el mundo.</p>
+        <h1>Aquí puedes encontrar la topología y los planos detallados de la empresa.</h1>
 
         <div class="image-container">
             <div class="service-image" id="topology-image">
@@ -87,17 +86,13 @@
             </div>
             <div class="service-image" id="blueprint-image" style="display:none;">
                 <img src="{{ url_for('static', filename='images/plano.png') }}" alt="Service Blueprint">
-                <p class="image-description">Un ejemplo de nuestro diseño de servicios en la nube, optimizado para escalabilidad y alta disponibilidad.</p>
+                <p class="image-description">El diseño refleja un entorno funcional y eficiente, pensado para cubrir las necesidades laborales y sociales de la empresa.</p>
             </div>
         </div>
 
         <div class="button-container" style="text-align: center;">
             <button onclick="toggleImages('topology')">Ver Topología</button>
-            <button onclick="toggleImages('blueprint')">Ver Plano de Servicio</button>
-        </div>
-
-        <div class="custom-bg">
-            TP Hosting es una empresa de hosting dedicada a proporcionar una amplia gama de servicios de alojamiento en línea, adaptados a las necesidades de particulares, pequeñas empresas y desarrolladores. Ofrecemos soluciones de alojamiento web, alojamiento de juegos y servicios en la nube, todo con un enfoque en la fiabilidad, la velocidad y un soporte al cliente excepcional.
+            <button onclick="toggleImages('blueprint')">Ver Planos</button>
         </div>
 
         {% with messages = get_flashed_messages() %}
