@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Standard favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <!-- PNG favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+
+    <!-- Android Chrome Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='android-chrome-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ url_for('static', filename='android-chrome-512x512.png') }}">
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Hosting - Imagenes de Servicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Additional CSS for updated layout needs */
+        .image-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        .service-image {
+            max-width: 45%; /* Adjusted to fit 2 images side by side */
+            height: auto;    
+            margin: 0 auto;
+            border: 5px solid #ccc;
+            border-radius: 15px;
+            flex-shrink: 0;
+        }
+
+        .image-description {
+            text-align: center;
+            color: #ccc; /* Light color for descriptions */
+        }
+
+        button {
+            background: #833AE0;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin: 20px;
+        }
+
+        button:hover {
+            background: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/services">Servicios</a></li>
+                    {% if logged_in %}
+                        <li><a href="/logout">Cerrar Sesión</a></li>
+                    {% else %}
+                        <li><a href="/login">Iniciar Sesión</a></li>
+                        <li><a href="/signup">Registrarse</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+
+        <h1>¡Bienvenido a TP Hosting!</h1>
+        <p>Hosting potente y confiable para todo el mundo.</p>
+
+        <div class="image-container">
+            <div class="service-image" id="topology-image">
+                <img src="{{ url_for('static', filename='images/topology.jpg') }}" alt="Enterprise Topology">
+                <p class="image-description">Este diagrama muestra la topología de nuestra infraestructura, diseñada para optimizar el rendimiento y la seguridad de nuestros servicios.</p>
+            </div>
+            <div class="service-image" id="blueprint-image" style="display:none;">
+                <img src="{{ url_for('static', filename='images/blueprint.jpg') }}" alt="Service Blueprint">
+                <p class="image-description">Un ejemplo de nuestro diseño de servicios en la nube, optimizado para escalabilidad y alta disponibilidad.</p>
+            </div>
+        </div>
+
+        <div class="button-container" style="text-align: center;">
+            <button onclick="toggleImages('topology')">Ver Topología</button>
+            <button onclick="toggleImages('blueprint')">Ver Plano de Servicio</button>
+        </div>
+
+        <div class="custom-bg">
+            TP Hosting es una empresa de hosting dedicada a proporcionar una amplia gama de servicios de alojamiento en línea, adaptados a las necesidades de particulares, pequeñas empresas y desarrolladores. Ofrecemos soluciones de alojamiento web, alojamiento de juegos y servicios en la nube, todo con un enfoque en la fiabilidad, la velocidad y un soporte al cliente excepcional.
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <footer>
+            <div class="footer-bar">
+                <a href="/about-us">Sobre Nosotros</a>
+                <a href="/contact-us">Contactanos</a>
+                <a href="/support">Soporte Técnico</a>
+                <span>© 2024 TP Hosting</span>
+            </div>
+        </footer>
+    </div>
+    <script>
+        function toggleImages(imageType) {
+            const topologyImage = document.getElementById('topology-image');
+            const blueprintImage = document.getElementById('blueprint-image');
+
+            if (imageType === 'topology') {
+                topologyImage.style.display = 'block';
+                blueprintImage.style.display = 'none';
+            } else {
+                topologyImage.style.display = 'none';
+                blueprintImage.style.display = 'block';
+            }
+        }
+    </script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
