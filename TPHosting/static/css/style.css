@@ -51,6 +51,44 @@ nav ul li a:hover {
     background: #146b8d;
 }
 
+.dropdown-btn {
+    display: none; /* Hidden by default on larger screens */
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    background-color: #146b8d;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.dropdown-btn:hover {
+    background-color: #4CAF50;
+}
+
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+}
+
+.dropdown-content a {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #146b8d;
+}
+
+.dropdown-btn.active + .dropdown-content {
+    display: flex;
+}
+
 h1, h2, p {
     text-align: center;
     margin: 50px 0;
@@ -197,16 +235,17 @@ footer {
     overflow: hidden;
 }
 
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%; /* Ensure proper alignment */
+}
+
 .carousel-images img {
     width: 100%;
     height: auto;
     display: block; /* Ensure visibility when using translateX */
     flex-shrink: 0;
-}
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease;
-    width: 100%; /* Ensure proper alignment */
 }
 
 .carousel-indicators {
@@ -230,7 +269,6 @@ footer {
     background-color: #000;
 }
 
-/* Mobile responsive adjustments */
 @media (max-width: 768px) {
     .container {
         width: 95%;
@@ -263,20 +301,7 @@ footer {
     }
 
     .dropdown-btn {
-        display: block;
-        width: 100%;
-        text-align: left;
-        padding: 10px;
-        background-color: #146b8d;
-        border: none;
-        color: white;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s;
-    }
-
-    .dropdown-btn:hover {
-        background-color: #4CAF50;
+        display: block; /* Show the button on smaller screens */
     }
 
     .dropdown-content {
