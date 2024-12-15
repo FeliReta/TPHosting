@@ -1,0 +1,272 @@
+/* Original and additional CSS for updated layout needs */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #1B2A2E;
+    color: #fff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #000a66, #ad4adb);
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    left: 0;
+    right: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background: #146b8d;
+}
+
+h1, h2, p {
+    text-align: center;
+    margin: 50px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ccc; /* Light color for labels */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers all form elements horizontally */
+}
+
+input[type="email"], input[type="password"] {
+    width: 50%; /* Makes the inputs half their original width */
+    padding: 5px; /* Reduces padding for smaller height */
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background-color: #2E3B3D;
+    color: #fff;
+    font-size: 14px; /* Adjust font size for smaller inputs */
+}
+
+button {
+    width: 50%; /* Makes the button half its original width */
+    padding: 5px; /* Reduces padding for smaller height */
+    background: #833AE0;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px; /* Matches input font size */
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #4CAF50;
+}
+
+img {
+    max-width: 100%; /* Ensures the image never exceeds its container's width */
+    height: auto;    /* Maintains aspect ratio */
+    display: block;  /* Prevents inline gaps */
+    margin: 0 auto;  /* Centers the image horizontally */
+}
+
+.flash-messages {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%; /* Ensures that the footer does not overflow */
+    box-sizing: border-box;
+    position: relative; /* To allow for positioning relative to other elements */
+    margin-top: 10%; /* Adjust as needed to move the footer lower */
+    background: linear-gradient(90deg, #000a66, #ad4adb);
+}
+
+.footer-bar {
+    max-width: 1200px; /* Adjust as needed based on your page layout */
+    margin: 0 auto; /* Centers the content horizontally */
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust space between the elements as needed */
+}
+
+.footer-bar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-bar span {
+    font-size: 12px;
+    color: #ccc;
+}
+
+.custom-bg {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    font-weight: bold; /* Makes the text inside bold */
+}
+
+.service-image {
+    max-width: 80%; /* Ensures the image never exceeds 80% of the box's width */
+    height: auto;    /* Maintains aspect ratio */
+    margin: 20px auto 0; /* Adds a margin at the top and centers the image */
+    border: 5px solid #ccc; /* Adds a border/frame around the image */
+    border-radius: 15px; /* Rounds the corners of the frame */
+    flex-shrink: 0; /* Prevents the image from shrinking inside the box */
+}
+
+.flash-messages {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 50px; /* Wider padding for a larger box */
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease; /* Smooth appearance and disappearance */
+    z-index: 1000; /* Ensures it's on top */
+}
+
+.support_button {
+    width: 50%; /* Makes the button half its original width */
+    padding: 5px; /* Reduces padding for smaller height */
+    background: #833AE0;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px; /* Matches input font size */
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 20px;
+}
+
+/* Carrusel de fotos */
+.carousel {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: auto;
+    display: block; /* Ensure visibility when using translateX */
+    flex-shrink: 0;
+}
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%; /* Ensure proper alignment */
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.carousel-indicators div {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.carousel-indicators .active {
+    background-color: #000;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    nav {
+        padding: 0 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1, h2, p {
+        margin: 20px 0;
+    }
+
+    input[type="email"], input[type="password"], button {
+        width: 90%; /* Wider form elements on mobile */
+    }
+
+    .flash-messages {
+        padding: 10px 30px;
+        font-size: 16px;
+    }
+
+    .footer-bar {
+        flex-direction: column;
+    }
+
+    .carousel {
+        max-width: 100%;
+    }
+
+    .carousel-images {
+        flex-direction: column;
+    }
+}
