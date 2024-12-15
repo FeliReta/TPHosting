@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Hosting - Sobre Nosotros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/services">Servicios</a></li>
+                {% if logged_in %}
+                    <li><a href="/logout">Cerrar Sesión</a></li>
+                {% else %}
+                    <li><a href="/login">Iniciar Sesión</a></li>
+                    <li><a href="/signup">Registrarse</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <h1>Sobre Nosotros</h1>
+        <p>
+            Bienvenido a TP Hosting, un equipo de 4 personas dedicadas a proporcionar servicios de hosting de alta calidad a empresas e individuos de todo el mundo. Nuestra misión es mejorar continuamente los servicios de hosting a través de un modelo freemium que permita a los usuarios acceder a una versión básica gratuita y luego escalar hacia opciones de pago según sus necesidades.
+        </p>
+        <p>
+            En TP Hosting, nos enorgullece ofrecer soluciones de alojamiento web, alojamiento de juegos y servicios en la nube adaptados a las necesidades de nuestros clientes. Queremos que tu presencia en línea sea rápida, segura y confiable. 
+        </p>
+        <h2>Servicios Ofrecidos:</h2>
+        <ul>
+            <li><strong>Alojamiento Web:</strong> Servicios de alojamiento compartido, VPS y dedicado, espacio para páginas web pequeñas y grandes, gestión de dominios y certificados SSL, instalación fácil de CMS como WordPress, Joomla y Magento.</li>
+            <li><strong>Alojamiento de Juegos:</strong> Servidores de videojuegos populares como Minecraft, Counter-Strike y más, configuración sencilla y alta disponibilidad para juegos en línea.</li>
+            <li><strong>Servicios en la Nube:</strong> Opciones para empresas y organizaciones que necesitan un alojamiento más potente, haciendo copias de seguridad y recuperando datos fácilmente, alojamiento de bases de datos y aplicaciones en la nube.</li>
+        </ul>
+        <h2>Soporte Técnico 24/7</h2>
+        <p>Contamos con un equipo de soporte técnico disponible todo el día, todos los días, para ayudarte con cualquier consulta o problema que tengas. Ofrecemos asistencia en tiempo real y tutoriales y guías para que puedas utilizar nuestros servicios sin problemas.</p>
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="/static/images/team.jpg" alt="Imagen 1">
+                <img src="/static/images/server.jpg" alt="Imagen 2">
+                <img src="/static/images/security.jpeg" alt="Imagen 3">
+            </div>
+            <div class="carousel-indicators">
+                <div class="active" onclick="currentSlide(1)"></div>
+                <div onclick="currentSlide(2)"></div>
+                <div onclick="currentSlide(3)"></div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-bar">
+                <a href="/about-us">Sobre Nosotros</a>
+                <a href="/contact-us">Contactanos</a>
+                <a href="/support">Soporte Técnico</a>
+                <span>© 2024 TP Hosting</span>
+            </div>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.carousel-images img');
+        const totalSlides = slides.length;
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = (i === index) ? 'block' : 'none';
+            });
+            document.querySelector('.carousel-indicators .active').classList.remove('active');
+            document.querySelectorAll('.carousel-indicators div')[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        function currentSlide(index) {
+            currentIndex = index - 1;
+            showSlide(currentIndex);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setInterval(nextSlide, 3000); // Cambia de imagen cada 3 segundos
+            showSlide(currentIndex); // Mostrar la primera imagen
+        });
+    </script>
+</body>
+</html>

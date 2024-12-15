@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Hosting - Alojamiento Web</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .plan-box {
+            background-color: #f4f4f4;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .plan-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .plan-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #833AE0;
+        }
+
+        .plan-price {
+            font-size: 24px;
+            color: #4A4A4A;
+            margin-bottom: 15px;
+        }
+
+        .plan-description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .plan-features {
+            font-size: 12px;
+            list-style: none;
+            padding: 0;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .plan-features li::before {
+            content: '✔';
+            color: green;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/services">Servicios</a></li>
+                {% if logged_in %}
+                    <li><a href="/logout">Cerrar Sesión</a></li>
+                {% else %}
+                    <li><a href="/login">Iniciar Sesión</a></li>
+                    <li><a href="/signup">Registrarse</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        <h1>Servicios en la Nube</h1>
+        <p>Elige el plan que mejor se adapte a tus necesidades de almacenamiento en la nube:</p>
+
+        <div class="plan-grid">
+            <div class="plan-box">
+                <div class="plan-title">Basic</div>
+                <div class="plan-price">Gratis</div>
+                <div class="plan-description">Ideal para sitios web pequeños y proyectos personales</div>
+                <ul class="plan-features">
+                    <li>Almacenamiento SSD de 10GB</li>
+                    <li>Banda ancha ilimitada</li>
+                    <li>Certificado SSL gratuito</li>
+                    <li>Dominio personalizado gratuito por 1 año</li>
+                    <li>Soporte por chat 24/7</li>
+                </ul>
+                <a href="#" class="btn">Elegir plan</a>
+            </div>
+            
+            <div class="plan-box">
+                <div class="plan-title">Plus</div>
+                <div class="plan-price">9,99 €/mes</div>
+                <div class="plan-description">Perfecto para negocios en crecimiento y e-commerce</div>
+                <ul class="plan-features">
+                    <li>Almacenamiento SSD de 50GB</li>
+                    <li>Banda ancha ilimitada</li>
+                    <li>Certificado SSL gratuito</li>
+                    <li>Copias de seguridad automáticas</li>
+                    <li>Soporte técnico prioritario</li>
+                    <li>Dominio personalizado gratuito por 1 año</li>
+                </ul>
+                <a href="#" class="btn">Elegir plan</a>
+            </div>
+            
+            <div class="plan-box">
+                <div class="plan-title">Pro</div>
+                <div class="plan-price">19,99 €/mes</div>
+                <div class="plan-description">La solución ideal para empresas y sitios web de alto tráfico</div>
+                <ul class="plan-features">
+                    <li>Almacenamiento SSD de 100GB</li>
+                    <li>Banda ancha ilimitada</li>
+                    <li>Certificado SSL gratuito</li>
+                    <li>Copias de seguridad diarias</li>
+                    <li>Soporte 24/7 con respuesta rápida</li>
+                    <li>Dominio personalizado gratuito por 1 año</li>
+                    <li>Optimización de rendimiento con CDN incluido</li>
+                </ul>
+                <a href="#" class="btn">Elegir plan</a>
+            </div>            
+        </div>
+        <footer>
+            <div class="footer-bar">
+                <a href="/about-us">Sobre Nosotros</a>
+                <a href="/contact-us">Contactanos</a>
+                <a href="/support">Soporte Técnico</a>
+                <span>© 2024 TP Hosting</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

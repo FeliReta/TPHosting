@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Hosting - Contact Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/services">Servicios</a></li>
+                {% if logged_in %}
+                    <li><a href="/logout">Cerrar Sesión</a></li>
+                {% else %}
+                    <li><a href="/login">Iniciar Sesión</a></li>
+                    <li><a href="/signup">Registrarse</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <h1>Contáctanos</h1>
+        <div class="contact-info">
+            <p>Para cualquier consulta o problema, no dudes en contactarnos directamente a través de los siguientes medios:</p>
+            <ul>
+                <li>Email: contacto@tp-hosting.com</li>
+                <li>Teléfono: +34 123 456 789</li>
+                <li><a href="https://www.facebook.com/tphosting">Facebook</a></li>
+                <li><a href="https://www.twitter.com/tphosting">Twitter</a></li>
+                <li><a href="https://www.instagram.com/tphosting">Instagram</a></li>
+                <li><a href="https://www.linkedin.com/company/tphosting">LinkedIn</a></li>
+            </ul>
+        </div>
+        <footer>
+            <div class="footer-bar">
+                <a href="/about-us">Sobre Nosotros</a>
+                <a href="/contact-us">Contactanos</a>
+                <a href="/support">Soporte Técnico</a>
+                <span>© 2024 TP Hosting</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+

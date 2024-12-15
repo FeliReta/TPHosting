@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Hosting - Registrarse</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/services">Servicios</a></li>
+                {% if logged_in %}
+                    <li><a href="/logout">Cerrar Sesión</a></li>
+                {% else %}
+                    <li><a href="/login">Iniciar Sesión</a></li>
+                    <li><a href="/signup">Registrarse</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <h1>Registrarse</h1>
+        <form method="post" action="/signup">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Registrarse</button>
+        </form>
+    <footer>
+            <div class="footer-bar">
+                <a href="/about-us">Sobre Nosotros</a>
+                <a href="/contact-us">Contactanos</a>
+                <a href="/support">Soporte Técnico</a>
+                <span>© 2024 TP Hosting</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
